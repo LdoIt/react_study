@@ -15,7 +15,7 @@ export default class List extends Component {
       <ul className="todo-main">
         {
           this.props.todos.map((todo) => {
-            return <Item key={todo.id} {...todo} getCheckedFromItem={this.props.getCheckedFromItem}/>
+            return <Item key={todo.id} {...todo} getCheckedFromItem={this.props.getCheckedFromItem} deletTodoByApp={this.props.deletTodoByApp}/>
           })
         }
       </ul>
