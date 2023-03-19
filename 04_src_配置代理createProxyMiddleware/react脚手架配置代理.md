@@ -32,7 +32,6 @@
 2. 编写setupProxy.js配置具体代理规则：
 
    ```js
-   const proxy = require('http-proxy-middleware')
    
    const {createProxyMiddleware} = require('http-proxy-middleware')
 
