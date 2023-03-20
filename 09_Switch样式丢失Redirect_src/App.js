@@ -6,7 +6,6 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import MyNavLink from './components/MyNavLink'
 import About from './pages/About'
 import Home from './pages/Home'
-import Test from './pages/Test'
 export default class App extends Component {
   render() {
     return (
@@ -33,9 +32,8 @@ export default class App extends Component {
                 <div className="panel-body">
                   {/* 只匹配第一个满足条件的path */}
                   <Switch>
-                    <Route path="/atguigu/about" component={About} />
-                    <Route path="/atguigu/home" component={Home} />
-                    <Route path="/atguigu/home" component={Test} />
+                    <Route exact path="/atguigu/about" component={About} />
+                    <Route exact path="/atguigu/home" component={Home} />
                     <Redirect to="/atguigu/home"/>
                   </Switch>
                 </div>
