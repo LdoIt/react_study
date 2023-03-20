@@ -2,10 +2,11 @@
  * @Date: 2023-03-20 11:10:27
  */
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import MyNavLink from './components/MyNavLink'
 import About from './pages/About'
 import Home from './pages/Home'
+import Test from './pages/Test'
 export default class App extends Component {
   render() {
     return (
@@ -23,15 +24,20 @@ export default class App extends Component {
               <div className="list-group">
                 {/* <a className="list-group-item active" href="./about.html">About</a>
                 <a className="list-group-item" href="./home.html">Home</a> */}
-                <MyNavLink to="/about">About</MyNavLink>
-                <MyNavLink to="/home/a/b">Home</MyNavLink>
+                <MyNavLink to="/atguigu/about">About</MyNavLink>
+                <MyNavLink to="/atguigu/home">Home</MyNavLink>
               </div>
             </div>
             <div className="col-xs-6">
               <div className="panel">
                 <div className="panel-body">
-                    <Route exact path="/about" component={About} />
-                    <Route exact path="/home" component={Home} />
+                  {/* 只匹配第一个满足条件的path */}
+                  <Switch>
+                    <Route path="/atguigu/about" component={About} />
+                    <Route path="/atguigu/home" component={Home} />
+                    <Route path="/atguigu/home" component={Test} />
+                    <Redirect to="/atguigu/home"/>
+                  </Switch>
                 </div>
               </div>
             </div>
