@@ -3,26 +3,29 @@
  */
 import React, { Component } from 'react'
 import store from '../../redux/store'
+// 引入创建action的函数
+import {createIncrementAction, createDecrementAction, createAsyncAction} from '../../redux/count_action'
 export default class Count extends Component {
   increment = () => {
     const {value} = this.selectEle
-    store.dispatch({type: 'increment', data: value*1})
+    store.dispatch(createIncrementAction(value*1))
   }
   decrement = () => {
     const {value} = this.selectEle
-    store.dispatch({type: 'decrement', data: value*1})
+    store.dispatch(createDecrementAction(value*1))
   }
   incrementIfOdd = () => {
     const {value} = this.selectEle
     if ((store.getState())%2!==0) {
-      store.dispatch({type: 'increment', data: value*1})
+      store.dispatch(createIncrementAction(value*1))
     }
   }
   incrementAsync = () => {
     const {value} = this.selectEle
-    setTimeout(() => {
-      store.dispatch({type: 'increment', data: value*1})
-    }, 500)
+    store.dispatch(createAsyncAction(value*1, 500))
+    // setTimeout(() => {
+    //   store.dispatch(createIncrementAction(value*1))
+    // }, 500)
   }
   render() {
     return (
