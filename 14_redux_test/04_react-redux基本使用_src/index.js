@@ -8,18 +8,10 @@ import store from './redux/store'
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+root.render(<App />);
 // 因为redux里面状态改变不会更新页面视图，所以注册一个监听器
 store.subscribe(() => {
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+  root.render(<App />);
 })
 
 // reportWebVitals();
